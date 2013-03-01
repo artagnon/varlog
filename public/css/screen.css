@@ -213,3 +213,18 @@ table {
 h1 {
 	font-weight: 500;
 }
+
+.wrapper {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.music.out, .music.in {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.formlabel {
+	padding-left: 5px;
+	padding-right: 5px;
+}

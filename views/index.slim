@@ -12,24 +12,29 @@ html
     script src="/js/backbone.js"
     script src="/js/main.js"
   body
-    h1 Welcome to varlog
-    article
-      | This is a list of tracks you've been listening
-        to.  Will soon expose API endpoints.
-    br
-    div class="music out" id="toEdit"
-      div class="music out entry"
-        | 10 | Deadman | Sound Awake | Karnivool
-    form class="music in"
-      | Track number:
-      input type="text"
-      | Track name:
-      input type="text"
-      | Album:
-      input type="text"
-      | Artist:
-      input type="text"
-      input type="submit" value="Add"
-    hr
-    footer
-      | Created by Ramkumar Ramachandra
+    div class="wrapper"
+      header
+        h1 Welcome to varlog
+      article
+        | This is a list of tracks you've been listening
+          to.  Will soon expose API endpoints.
+      div class="music out" id="toEdit"
+        div class="music entry"
+          | 10 | Deadman | Sound Awake | Karnivool
+      form class="music in" method="post"
+        span class="formlabel"
+          | Track number:
+        input type="text" name="num"
+        span class="formlabel"
+          | Track name:
+        input type="text" name="title"
+        span class="formlabel"
+          | Album:
+        input type="text" name="album"
+        span class="formlabel"
+          | Artist:
+        input type="text" name="artist"
+        input type="submit" value="Add"
+      hr
+      footer
+        | Created by Ramkumar Ramachandra

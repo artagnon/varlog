@@ -19,7 +19,7 @@ musicList.reset([
 
 var MusicView = Backbone.View.extend({
     tagName: "div",
-    className: "music out entry",
+    className: "music entry",
     initialize: function(){
 	this.template = _.template('<%= num %> | <%= title %> | <%= album %> | <%= artist %>');
     },
