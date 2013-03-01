@@ -44,7 +44,20 @@ var MusicListView = Backbone.View.extend({
     }
 });
 
+var musicApp = new (Backbone.Router.extend({
+    routes: { '': 'index' },
+    initialize: function(){
+	this.musicListView = new MusicListView({});
+    },
+    start: function(){
+	Backbone.history.start({ pushState: true });
+    },
+    index: function(){
+	this.musicListView.render();
+    }
+}));
+
 $(function(){
-    var musicListView = new MusicListView({});
-    musicListView.render();
+    musicApp.initialize();
+    musicApp.start();
 });
