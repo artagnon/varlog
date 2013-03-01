@@ -35,7 +35,6 @@ var MusicFormView = Backbone.View.extend({
 	'submit #musicform': 'submit'
     },
     submit: function(event){
-	event.preventDefault();
 	$.post(this.$el.attr('action'),
 	       this.$el.serialize())
 	    .done(function(data){
