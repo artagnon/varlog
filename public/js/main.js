@@ -1,7 +1,7 @@
 var MusicModel = Backbone.Model.extend({});
 var MusicList = Backbone.Collection.extend({ model: MusicModel });
 
-musicList = new MusicList();
+musicList = new MusicList({});
 musicList.reset([
     {
 	num: 1,
@@ -18,8 +18,8 @@ musicList.reset([
 ]);
 
 var MusicView = Backbone.View.extend({
-    tagName: "div",
-    className: "music entry",
+    tagName: 'div',
+    className: 'music entry',
     initialize: function(){
 	this.template = _.template('<%= num %> | <%= title %> | <%= album %> | <%= artist %>');
     },
@@ -30,7 +30,7 @@ var MusicView = Backbone.View.extend({
 });
 
 var MusicListView = Backbone.View.extend({
-    el: "#toEdit",
+    el: '#toEdit',
     collection: musicList,
     addOne: function(thisModel) {
 	var musicView = new MusicView({ model: thisModel });
