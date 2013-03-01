@@ -24,7 +24,7 @@ var MusicView = Backbone.View.extend({
 	this.template = _.template('<%= num %> | <%= title %> | <%= album %> | <%= artist %>');
     },
     render: function(){
-	this.$el.html(this.template(this.model.toJSON()));
+	this.$el.html(this.template(this.model.attributes));
 	return this;
     }
 });
