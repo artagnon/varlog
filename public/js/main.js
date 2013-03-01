@@ -4,13 +4,11 @@ var MusicList = Backbone.Collection.extend({ model: MusicModel });
 musicList = new MusicList({});
 musicList.reset([
     {
-	num: 1,
 	title: 'Setting Forth',
 	album: 'Into the Wild',
 	artist: 'Eddie Vedder'
     },
     {
-	num: 2,
 	title: 'No Ceiling',
 	album: 'Into the Wild',
 	artist: 'Eddie Vedder'
@@ -21,7 +19,7 @@ var MusicView = Backbone.View.extend({
     tagName: 'div',
     className: 'music entry',
     initialize: function(){
-	this.template = _.template('<%= num %> | <%= title %> | <%= album %> | <%= artist %>');
+	this.template = _.template('<%= title %> | <%= album %> | <%= artist %>');
     },
     render: function(){
 	this.$el.html(this.template(this.model.attributes));
