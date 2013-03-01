@@ -60,4 +60,12 @@ var musicApp = new (Backbone.Router.extend({
 $(function(){
     musicApp.initialize();
     musicApp.start();
+    $('#musicform').submit(function(event){
+	event.preventDefault();
+	$.post($('#musicform').attr('action'),
+	       $('#musicform').serialize())
+	    .done(function(data){
+		console.log(data);
+	    });
+    });
 });
