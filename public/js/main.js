@@ -29,6 +29,22 @@ var MusicView = Backbone.View.extend({
     }
 });
 
+var MusicFormView = Backbone.View.extend({
+    el: 'div.wrapper',
+    events: {
+	'submit #musicform': 'submit'
+    },
+    submit: function(event){
+	event.preventDefault();
+	$.post(this.$el.attr('action'),
+	       this.$el.serialize())
+	    .done(function(data){
+		console.log(data);
+	    });
+	return false;
+    }
+});
+
 var MusicListView = Backbone.View.extend({
     el: '#toEdit',
     collection: musicList,
@@ -48,6 +64,7 @@ var musicApp = new (Backbone.Router.extend({
     routes: { '': 'index' },
     initialize: function(){
 	this.musicListView = new MusicListView({});
+	this.musicFormView = new MusicFormView({});
     },
     start: function(){
 	Backbone.history.start({ pushState: true });
@@ -60,12 +77,4 @@ var musicApp = new (Backbone.Router.extend({
 $(function(){
     musicApp.initialize();
     musicApp.start();
-    $('#musicform').submit(function(event){
-	event.preventDefault();
-	$.post($('#musicform').attr('action'),
-	       $('#musicform').serialize())
-	    .done(function(data){
-		console.log(data);
-	    });
-    });
 });
