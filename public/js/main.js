@@ -31,15 +31,23 @@ var MusicView = Backbone.View.extend({
 
 var MusicFormView = Backbone.View.extend({
     el: 'div.wrapper',
+    initialize: function(){
+	this.musicListView = new MusicListView({});
+    },
     events: {
 	'submit #musicform': 'submit'
     },
     submit: function(event){
-	$.post(this.$el.attr('action'),
-	       this.$el.serialize())
+	/* Post to the server */
+	$.post($('#musicform').attr('action'),
+	       $('#musicform').serialize())
 	    .done(function(data){
 		console.log(data);
 	    });
+
+	/* Update the DOM */
+	thisModel = new MusicModel($('#musicform').serializeObject());
+	this.musicListView.addOne(thisModel);
 	return false;
     }
 });
