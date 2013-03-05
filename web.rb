@@ -19,6 +19,11 @@ get '/' do
   slim :index
 end
 
+get '/:username/stream' do
+  content_type :json
+  settings.mongo_db[params[:username]].find.to_a.to_json
+end
+
 post '/' do
   content_type :json
   { :success => true }.to_json
