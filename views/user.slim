@@ -22,7 +22,7 @@ html
         - @streamentries.each do |entry|
           div class="music entry"
             | #{entry.title} | #{entry.album} | #{entry.artist}
-      form id="musicform" method="post" action="/"
+      form id="musicform" method="post" action="/#{@username}/new"
         span class="formlabel"
           | Title:
         input type="text" name="title"
@@ -33,6 +33,3 @@ html
           | Artist:
         input type="text" name="artist"
         input type="submit" value="Add"
-      hr
-      footer
-        | Created by Ramkumar Ramachandra

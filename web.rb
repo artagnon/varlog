@@ -29,6 +29,15 @@ get '/:username' do
   slim :user
 end
 
+post '/:username/new' do
+  content_type :json
+  data = JSON.parse request.body.read
+  settings.mongo_db[params[:username]].insert({:title => data["title"],
+                                                :album => data["album"],
+                                                :artist => data["artist"]})
+  { :success => true }.to_json
+end
+
 get '/:username/stream' do
   content_type :json
   settings.mongo_db[params[:username]].find.to_a.to_json
